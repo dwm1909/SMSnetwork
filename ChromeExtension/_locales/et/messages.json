@@ -1,0 +1,27 @@
+﻿{
+  "chrome_extension_name": {
+    "message": "SMSnetwork jaoks Chrome"
+  },
+  "chrome_extension_description": {
+    "message": "Lihtsalt, parim SMSnetwork pluss Chrome. Saata ja vastu võtta SMS / MMS maailmas oma nime või numbri saatjale."
+  },
+  "click_here": {
+    "message": "Vasak klõps loetleda need aktsepteeritavad keeled."
+  },
+  "browser_action_title": {
+    "message": "SMSnetwork"
+  },
+  "chrome_accept_languages": {
+    "message": "$CHROME$ accepts $languages$ languages",
+    "placeholders": {
+      "chrome": {
+        "content": "Chrome",
+        "example": "Chrome"
+      },
+      "languages": {
+        "content": "$10",
+        "example": "en-US,sv,no,da,fi,nl,it,fr,es,et,de"
+      }
+    }
+  }
+}

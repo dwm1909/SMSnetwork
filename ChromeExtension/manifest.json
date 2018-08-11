@@ -1,0 +1,44 @@
+{
+  "name": "__MSG_chrome_extension_name__",
+  "version": "0.0.25",
+  "manifest_version": 2,
+  "default_locale": "en_US",
+  "description": "__MSG_chrome_extension_description__",
+  "icons": { 
+	"128": "img/icon128.png",
+	"48": "img/icon48.png",
+	"16": "img/icon16.png"
+  },
+  "browser_action": {
+	"default_title": "__MSG_browser_action_title__",
+	"default_icon": "img/logo19.png", 
+	"default_popup": "popup.html"
+  },
+  "background": {
+	"scripts": ["background.js"]
+  },
+  "content_security_policy": "script-src 'self' https://*.google-analytics.com; object-src 'self'",
+  "file_browser_handlers": [
+    {
+      "id": "upload",
+      "default_title": "Save for MMS",
+      "file_filters": [
+	"filesystem:*.jpg",
+        "filesystem:*.jpeg",
+        "filesystem:*.png"
+      ]
+    }
+  ],
+  "homepage_url": "https://chrome.google.com/webstore/detail/dlkmhlkkbjgbjpiidobibnckobfagpbd?utm_source=chrome-ntp-icon",
+  "minimum_chrome_version": "10",
+  "options_page": "options.html",
+  "permissions": [
+	"tabs", "http://*.smsnetwork.org/", "https://*.smsnetwork.org/", "https://ssl.google-analytics.com"
+  ],
+  "web_accessible_resources": [
+        "images/my-awesome-image1.png",
+        "images/my-amazing-icon1.png",
+        "style/double-rainbow.css",
+        "script/double-rainbow.js"
+  ]
+}

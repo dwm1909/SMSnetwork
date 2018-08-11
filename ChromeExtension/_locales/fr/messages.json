@@ -1,0 +1,27 @@
+﻿{
+  "chrome_extension_name": {
+    "message": "SMSnetwork pour Chrome"
+  },
+  "chrome_extension_description": {
+    "message": "Avec la facilité, le meilleur SMSnetwork ainsi Chrome. Envoyer et recevoir des SMS / MMS dans le monde entier votre nom ou du numéro de l'expéditeur."
+  },
+  "click_here": {
+    "message": "Clic gauche pour la liste de ces langues acceptées."
+  },
+  "browser_action_title": {
+    "message": "SMSnetwork"
+  },
+  "chrome_accept_languages": {
+    "message": "$CHROME$ accepts $languages$ languages",
+    "placeholders": {
+      "chrome": {
+        "content": "Chrome",
+        "example": "Chrome"
+      },
+      "languages": {
+        "content": "$8",
+        "example": "en-US,sv,no,da,fi,nl,it,fr,es,et,de"
+      }
+    }
+  }
+}

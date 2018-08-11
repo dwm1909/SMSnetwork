@@ -1,0 +1,27 @@
+﻿{
+  "chrome_extension_name": {
+    "message": "SMSnetwork for Chrome"
+  },
+  "chrome_extension_description": {
+    "message": "Med lethed. Den bedste SMSnetwork plus Chrome Send og modtag SMS / MMS verdensomspændende dit navn eller nummer som afsender."
+  },
+  "click_here": {
+    "message": "Venstre klik for at nævne de sprog, der accepteres."
+  },
+  "browser_action_title": {
+    "message": "SMSnetwork"
+  },
+  "chrome_accept_languages": {
+    "message": "$CHROME$ accepts $languages$ languages",
+    "placeholders": {
+      "chrome": {
+        "content": "Chrome",
+        "example": "Chrome"
+      },
+      "languages": {
+        "content": "$4",
+        "example": "en-US,sv,no,da,fi,nl,it,fr,es,et,de"
+      }
+    }
+  }
+}

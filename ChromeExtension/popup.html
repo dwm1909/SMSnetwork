@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--1-->
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="css/extra.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div id="footer"> </div>
+<div id="header" class="clearfix"> 
+  <!--div class="fr">
+                <input type="text" id="search" placeholder="Search" autocomplete="off" autofocus="off" autocorrect="off" />
+            </div--> 
+  <a href="http://app.smsnetwork.org/detail-chrome.php" target="_blank">SMSnetwork for Chrome</a> <span class="light">&mdash;</span> <a class="light" href="https://www.smsnetwork.org" target="_blank">Full Site</a> </div>
+<div id="sidebar" class="hidden">
+  <ul id="nav">
+    <li id="home"> <a data-tip="Home"><img src="img/about.png" width="25" height="25" /></a> </li>
+    <li id="sendsms"> <a data-tip="Newsfeed"><img src="img/send-sms.png" width="25" height="25" /></a> </li>
+    <li id="notifications"> <a data-tip="Notifications"><img src="img/incoming-sms.png" width="25" height="25" />
+      <div id="notification_count"></div>
+      </a> </li>
+    <li id="reports"> <a data-tip="Reports"><img src="img/delivery-reports.png" width="25" height="25" /></a> </li>
+    <li id="collect"> <a data-tip="Collect"><img src="img/Collect-sms-icon.png" width="25" height="25" /></a> </li>
+    <li id="purchase"> <a data-tip="Purchase"><img src="img/credit-purchase.png" width="25" height="25" /></a> </li>
+    <li id="phonebook"> <a data-tip="Phonebook"><img src="img/phone-book.png" width="25" height="25" /></a> </li>
+    <li id="settings"> <a data-tip="Settings"><img src="img/settings.png" width="25" height="25" /></a> </li>
+    <li id="help"> <a data-tip="Help"><img src="img/help.png" width="25" height="25" /></a> </li>
+  </ul>
+</div>
+
+<!-- CONTENT -->
+<div id="content"> 
+  
+  <!-- LOGIN -->
+  <div id="login" class="hidden">
+    <form id="login_form">
+      <div class="login_area">
+        <div class="frm_box clearfix">
+          <label>Number</label>
+          <input type="text" name="user_name" value=""/>
+        </div>
+        <div class="frm_box clearfix">
+          <label>Password</label>
+          <input type="password" name="password" value=""/>
+        </div>
+        <div class="frm_box clearfix">
+		  <input type="hidden" name="client" value="chrome" />
+          <input name="" id="login_submit" type="submit" value="Login">
+        </div>
+        
+        <!-- Pay no attention to the ad="true" / It is just a quick fix for the .js-->
+        <div class="pass">
+          <div id="forgotpass"><a ad="true" href="https://www.smsnetwork.org/forgot-password.php">Forgot password?</a></div>
+          <div id="registeracc"><a ad="true" href="https://www.smsnetwork.org/become-a-member.php">Register account</a></div>
+        </div>
+        <div id="errsucc"></div>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Actual content -->
+  <div id="actual_content" class="hidden"> 
+    <!-- HOME -->
+    <div id="home_content" class="hidden">
+      <h3>Hello <span id="content_name"></span></h3>
+      <h3>Your number is <span id="content_number"></span></h3>
+      <h3>You have (credits left)<span id="content_credits"></span></h3>
+      <h3>Free sms today (VIP) <span id="content_free_credits"></span></h3>
+      <h3 class="last">Your last login was at <span id="content_last_login"></span></h3>
+      <table id="content_table">
+      </table>
+      <div class="clear"><!-- --></div>
+    </div>
+    
+    <!-- SENDSMS -->
+    <div id="sendsms_content" class="hidden">
+      <h2>Send SMS</h2>
+      <form id="sendsms_form">
+        <input type='hidden' name='from'>
+        <input type='hidden' name='extension' value="yes">
+        <div class="send-sms bg-none">
+         
+            <label>Sender <span><a href="https://www.smsnetwork.org/originators.php" ad="true">(Add another author)</a></span></label>
+            <select name="mobil" id="sendsms_originators">
+              <option>Loading..</option>
+              <option></option>
+              <option></option>
+              <option></option>
+              <option></option>
+            </select>
+          </div>
+      <div class="send-sms bg">
+            <label>Or Self <br/>
+              <span>Ex:<span id="landcode_1"></span>xxxxxxxxx or Name</span></label>
+            <input type="text" name="from" id="vip_specify_from" placeholder="Requires vip" value="" disabled="disabled" />
+         
+        </div>
+        <div class="clear"><!-- --></div>
+        <div class="send-sms bg-none">
+     
+            <label>Recipients <br/>
+              <span>from the phonebook </span></label>
+            <select name="nr" id="sendsms_receiver">
+              <option>Loading..</option>
+            </select>
+			<div id="myDiv"></div>
+          </div>
+          
+        <div class="send-sms bg">
+            <label>Or Number <span>(00<span id="landcode_2"></span>7xxxxxxxx,<br/>
+              00<span id="landcode_3"></span>7xxxxxxxx )</span></label>
+            <input type="text" name="ellernumber" id="vip_specify_ellernumber" placeholder="Requires vip" value="" disabled="disabled">
+        </div>
+        <div class="clear"><!-- --></div>
+        <div class="send-sms2 bg-none" id="radioboxes">
+          <label><input type="radio" value="text" checked name="smstype">Plain SMS</label>
+          <label><input type="radio" value="flash" name="smstype">Flash SMS</label>
+          <label><input id="voice_click" type="radio" value="talsms" name="smstype">Voice SMS</label><br />
+          <label><input type="radio" value="swsms" name="smstype">SW SMS</label>
+		  <label><input id="unicode_click" type="radio" value="unicode" name="smstype">Unicode SMS</label>
+         </div>
+        
+        <div class="clear"></div>
+        <div class="send-sms bg"> <br/>
+          <label>Message &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>(<span id="ta_sms">1</span>/<span id="ta_sms_max">6</span> SMS)&nbsp;&nbsp;&nbsp;&nbsp;(<span id="ta_left">160</span>)</span></label>
+          <br/>
+          <textarea id="smstext" name="text" placeholder="Message"></textarea>
+         
+          <div class="clear"><!-- --></div>
+        </div>
+        <!--div class="use-template"><a href="#">Use Template</a> - <a href="#">Create and modify templates</a></div-->
+        <center>
+          <br />
+          <input type="hidden" id="form_recipients" name="recipients" value="" />
+          <input type="hidden" name="submit" value="" />
+          <a id="sendsms_submit">Send</a>
+          <div id="sendsms_errsucc"></div>
+        </center>
+      </form>
+    </div>
+    
+    <!-- NOTIFICATIONS -->
+    <div id="notifications_content" class="hidden">
+      <h2>Received</h2>
+      <table id="received_table" border="0" cellpadding="0" cellspacing="0">
+      </table>
+    </div>
+    
+    <!-- REPORTS -->
+    <div id="reports_content" class="hidden">
+      <h2>Sent</h2>
+      <table id="sent_table" border="0" cellpadding="0" cellspacing="0">
+      </table>
+      <br />
+      <center>
+        <a id='update_logs'>Update statuses</a>
+      </center>
+    </div>
+    
+    <!-- COLLECT -->
+    <div id="collect_content" class="hidden">
+      <h2>Collect credits</h2>
+      <div id="collect_credits"></div>
+      <table id="collect_credits_free_table" border="0" cellpadding="0" cellspacing="0">
+      </table>
+      <table id="collect_credits_other_table" border="0" cellpadding="0" cellspacing="0">
+      </table>
+    </div>
+    
+    <!-- PURCHASE -->
+    <div id="purchase_content" class="hidden">
+      <div id="accordion2">
+        <h2>Purchase Credits</h2>
+        <dl class="accordion2" id="slider2">
+          <!--dt><img src="img/contact-us1.png" width="25" height="24" alt="" />Buy credits via telephone</dt>
+          <dd>
+            <div class="main">
+              <p>Lorem Ipsum is simply dummy text of the printing and <a href="#">typesetting industry</a>. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a <a href="#">galley</a> of type and scrambled it to make a type specimen book. </p>
+            </div>
+          </dd-->
+          <!--dt><img src="img/send-sms1.png" width="26" height="24" alt="" />Buy credits via sms</dt>
+          <dd>
+            <div class="main">
+              <label>Name</label>
+              <input type="text" name="" value=""/>
+              <label>Phone No.</label>
+              <input type="text" name="" value=""/>
+              <label>Password</label>
+              <select name="">
+                <option>Choose</option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+              <div class="clear"><!-- ></div>
+              <input type="radio" name="RadioGroup1" value="radio">
+              <label>Plain SMS</label>
+              <input type="radio" name="RadioGroup1" value="radio">
+              <label> Flash SMS</label>
+              <input type="radio" name="RadioGroup1" value="radio">
+              <label> SPEECH SMS</label>
+              <input name="" type="submit" value="Submit">
+              <div class="clear"></div>
+            </div>
+          </dd-->
+          <dt id="payson_area">
+			<img src="img/payson1.png" width="26" height="24" alt="" />Buy credits via payson
+		  </dt>
+          <dd id="payson_area_under" class="hidden">
+            <div class="main">
+              <form id="buy_payson" method="post">
+					<h3 style="color:red;">Minimum purchase is 100 credits.</h3>
+					<label>
+					Credits: 
+					<input type="text" name="amount" id="payson_amount"/>
+					<a id="payson_submit"><img src="img/order.png" /></a>
+					</label>
+				</form>
+				<div style="clear:both;"></div>
+            </div>
+          </dd>
+          <dt id="paypal_area">
+		  <img src="img/paypal1.png" width="26" height="24" alt="" />Buy credits via paypal
+		  </dt>
+          <dd id="paypal_area_under" class="hidden">
+            <div class="main">
+              <form id="buy_paypal" method="post">
+					<h3 style="color:red;">Minimum purchase is 100 credits.</h3>
+					<label>
+					Credits: 
+					<input type="text" name="amount" id="paypal_amount"/>
+					<a id="paypal_submit"><img src="img/order.png" /></a>
+					</label>
+				</form>
+				<div style="clear:both;"></div>
+			</div>
+          </dd>
+          <dt id="bank_area">
+		  <img src="img/bank-icon1.png" width="26" height="24" alt="" />Buy credits via bank
+		  </dt>
+          <dd id="bank_area_under" class="hidden">
+            <div class="main">
+              You can deposit money via your bank to us, for the popular table out of people in Sweden pay to
+				<br />
+				Plusgiro: 30 09 07-3<br />
+				Bankgiro: 5976-3136<br />
+<br /><br />
+				or account number to obtain credit on the same day rather than after few days.
+				<br />Account Number: 9960-4203009073 Nordea
+<br />
+				<br />For people outside Sweden
+<br /><br />
+				<br />IBAN: SE36 9500 0099 6042 0300 9073
+				<br />BIC: NDEASESS
+<br />
+				<br />Referens: sms_<span id="bank_reference"></span>
+<br /><br />
+				<br />Price each: 0.66 SEK / € 0.07 inc.
+				<br />For larger orders contact us for a quotation.
+				<br /><br /><b>Good to know</b>
+				<br />SMS credits deposited in your account as soon as we receive the money on account.
+				<br />You need to specify the reference number that is registered to your account at SMSnetwork.org
+            </div>
+          </dd>
+          <dt id="vip_area">
+			<img src="img/vip1.png" width="26" height="24" alt="" />Buy VIP
+		  </dt>
+          <dd id="vip_area_under" class="hidden">
+            <div class="main">
+              <h3><a href="https://www.smsnetwork.org/vip/vip.php" ad="true"><center>Buy VIP on www.SMSNetwork.org</center></a></h3>
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <!-- PHONEBOOK -->
+    <div id="phonebook_content" class="hidden">
+      <h2>Phonebook</h2>
+	  <div id="accordion2">
+        <dl class="accordion2">
+		<dt id="add_area" style="width:92%">
+		  Add number
+		</dt>
+        <dd id="add_area_under" class="hidden">
+			<form id="add_to_phonebook">
+				Name<br /><input type="text" name="namn" /><br />
+				Number<br /><input type="text" name="nummer" /><br />
+				Country<br /><select id="country_code_select" name="countrycode">
+					
+				</select><br />
+				E-mail (not needed)<br /><input type="text" name="epost" /><br />
+				<input type="hidden" name="submit" />
+				<input type="hidden" name="typeadd" value="0" /><br />
+				<a id="add_to_phonebook_button" class="button">Add to phonebook</a>
+				<span id="add_to_phonebook_errsucc"></span>
+			</form>
+		</dd>
+		</dl>
+	</div>
+      <table id="phonebook_table" border="0" cellpadding="0" cellspacing="0">
+      </table>
+	  
+	  
+    </div>
+    
+    <!-- SETTINGS -->
+    <div id="settings_content" class="hidden">
+      <div class="middle">
+		Change all of your settings on <a ad="true" href="https://www.smsnetwork.org/settings.php">www.smsnetwork.org</a>
+        <br />
+        <br />
+		<a id="logout">Log out</a> (You will not receive notifications if you log out)
+	  </div>
+    </div>
+    
+    <!-- HELP -->
+    <div id="help_content" class="hidden">
+      <div>
+        <div id="accordion">
+          <h2>Help</h2>
+          <h3>Questions</h3>
+          <dl class="accordion2" id="slider">
+            <dt id="q1">What is credit</dt>
+            <dd id="q1_under" class="hidden">
+              <div class="main">
+                <p>Do you want to send more SMS, MMS and HLR lookup so you can accumulate credits through to accept the offers. If you already sent a text message one day a credit will be deducted automatically for the second SMS. If you have no credit so you can not send more than six messages per day.</p>
+              </div>
+            </dd>
+            <dt id="q2">What does "No status received" in my history?</dt>
+            <dd id="q2_under" class="hidden">
+              <div class="main">
+                <p>"No state received" means that we have not received notice from our supplier if the SMS arrived. A common reason is that the recipient,s mobile phone is currently turned off.</p>
+                <div class="clear"></div>
+              </div>
+            </dd>
+            <dt  id="q3"> How long does it take to get their credit after having exhausted an offer?</dt>
+            <dd  id="q3_under" class="hidden">
+              <div class="main">
+                <p>Everything is done automatically some deals you get on the fly, some take a while for companies to send them into the report so it can take up to 10 minutes on some before you get them.</p>
+              </div>
+            </dd>
+            <dt id="q4">What is credit</dt>
+            <dd id="q4_under" class="hidden">
+              <div class="main">
+                <p>Do you want to send more SMS, MMS and HLR lookup so you can accumulate credits through to accept the offers. If you already sent a text message one day a credit will be deducted automatically for the second SMS. If you have no credit so you can not send more than six messages per day.</p>
+              </div>
+            </dd>
+            <dt id="q5">What does "No status received" in my history?</dt>
+            <dd id="q5_under" class="hidden">
+              <div class="main">
+                <p>"No state received" means that we have not received notice from our supplier if the SMS arrived. A common reason is that the recipient,s mobile phone is currently turned off.</p>
+                <div class="clear"></div>
+              </div>
+            </dd>
+            <dt id="q6"> How long does it take to get their credit after having exhausted an offer?</dt>
+            <dd id="q6_under" class="hidden">
+              <div class="main">
+                <p>Everything is done automatically some deals you get on the fly, some take a while for companies to send them into the report so it can take up to 10 minutes on some before you get them.
+                </p>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/popup.js"></script> 
+</body>
+</html>

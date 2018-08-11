@@ -1,0 +1,27 @@
+﻿{
+  "chrome_extension_name": {
+    "message": "SMSnetwork varten Chrome"
+  },
+  "chrome_extension_description": {
+    "message": "Helposti, paras SMSnetwork plus Chrome. Voit lähettää ja vastaanottaa SMS / MMS maailmanlaajuisesti nimesi tai numeron lähettäjä."
+  },
+  "click_here": {
+    "message": "Vasen klikkaa luetella kieliä."
+  },
+  "browser_action_title": {
+    "message": "SMSnetwork"
+  },
+  "chrome_accept_languages": {
+    "message": "$CHROME$ accepts $languages$ languages",
+    "placeholders": {
+      "chrome": {
+        "content": "Chrome",
+        "example": "Chrome"
+      },
+      "languages": {
+        "content": "$5",
+        "example": "en-US,sv,no,da,fi,nl,it,fr,es,et,de"
+      }
+    }
+  }
+}

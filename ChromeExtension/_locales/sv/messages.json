@@ -1,0 +1,27 @@
+﻿{
+  "chrome_extension_name": {
+    "message": "SMSnetwork för Chrome"
+  },
+  "chrome_extension_description": {
+    "message": "Med lätthet, den bästa SMSnetwork tillägg för Chrome. Skicka och ta emot sms / mms över hela världen ditt eget namn eller nummer som avsändare."
+  },
+  "click_here": {
+    "message": "Vänster klicka för att lista dem godkända språken."
+  },
+  "browser_action_title": {
+    "message": "SMSnetwork"
+  },
+  "chrome_accept_languages": {
+    "message": "$CHROME$ accepts $languages$ languages",
+    "placeholders": {
+      "chrome": {
+        "content": "Chrome",
+        "example": "Chrome"
+      },
+      "languages": {
+        "content": "$2",
+        "example": "en-US,sv,no,da,fi,nl,it,fr,es,et,de"
+      }
+    }
+  }
+}
